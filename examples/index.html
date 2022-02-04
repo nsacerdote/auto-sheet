@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auto Sheet Example</title>
+  </head>
+  <body>
+    <label for="xls_file">Upload bank-1.xls</label>
+    <input id="xls_file" type="file" name="xls_file" />
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <script src="https://unpkg.com/xlsx@0.18.0/dist/xlsx.js"></script>
+    <script src="../dist/auto-sheet.js"></script>
+    <script>
+      document
+        .getElementById("xls_file")
+        .addEventListener("change", handleFileAsync, false);
+
+      async function handleFileAsync(e) {
+        const file = e.target.files[0];
+        const data = await file.arrayBuffer();
+        AutoSheet.run({
+          transformFn: processBankOne,
+          from: data,
+          toFile: "out.csv",
+        });
+      }
+
+      function processBankOne(transformations) {
+        transformations.deleteRows("1-8");
+        transformations.deleteColumns("C,E-G");
+        transformations.renameCell("A1", "DATE");
+        transformations.renameCell("B1", "PAYEE");
+        transformations.renameCell("C1", "AMOUNT");
+      }
+    </script>
+  </body>
+</html>

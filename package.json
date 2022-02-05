@@ -1,14 +1,15 @@
 {
   "name": "auto-sheet",
   "version": "1.0.0",
-  "description": "",
+  "description": "Accepts xls files, applies the transformations you want to them and it returns a csv file with the result. It works in the browser and node.",
   "main": "dist/auto-sheet.js",
   "scripts": {
     "test": "jest",
     "build": "webpack"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": "nsacerdote/auto-sheet",
   "devDependencies": {
     "file-saver": "^2.0.0",
     "jest": "^27.4.7",
@@ -23,5 +24,9 @@
   },
   "prettier": {
     "arrowParens": "avoid"
-  }
+  },
+  "keywords": [
+    "xls",
+    "csv"
+  ]
 }

@@ -8,7 +8,7 @@ I was tired of repeating the same boring steps with the `xls` files my banks pro
 I only needed some columns, with different names and as `csv`. (I use [YNAB](https://www.youneedabudget.com/) to track my spending).
 
 ## Install
-`npm install xlsx file-saver auto-sheet`
+`npm install auto-sheet`
 
 ## Examples
 See /examples folder

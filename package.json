@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "file-saver": "^2.0.5",
+    "file-saver": "^2.0.0",
     "jest": "^27.4.7",
     "prettier": "2.5.1",
     "webpack": "^5.68.0",
@@ -19,7 +19,7 @@
   },
   "peerDependencies": {
     "xlsx": "^0.18.0",
-    "file-saver": "^2.0.5"
+    "file-saver": "^2.0.0"
   },
   "prettier": {
     "arrowParens": "avoid"

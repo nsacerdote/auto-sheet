@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: "./src/index.js",
+  mode: "production",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "auto-sheet.js",
@@ -25,5 +26,5 @@ module.exports = {
       root: "saveAs",
     },
     fs: "fs",
-  }
+  },
 };

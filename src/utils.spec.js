@@ -1,7 +1,4 @@
-const {
-  fromStringToNumberArray,
-  fromLettersToNumber,
-} = require("./utils");
+const { fromStringToNumberArray, fromLettersToNumber } = require("./utils");
 
 describe("fromStringToNumberArray", () => {
   it("should transform a single number", () => {

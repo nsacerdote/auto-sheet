@@ -70,4 +70,4 @@ AutoSheet.run({
 
 ## Examples
 
-See /examples folder
+See [/examples](https://github.com/nsacerdote/auto-sheet/tree/master/examples) folder

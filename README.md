@@ -1,4 +1,7 @@
 # AutoSheet
+[![GitHub license](https://img.shields.io/github/license/nsacerdote/auto-sheet)](https://github.com/nsacerdote/auto-sheet/blob/master/LICENSE)
+![npm](https://img.shields.io/npm/v/auto-sheet)
+![npm bundle size](https://img.shields.io/bundlephobia/min/auto-sheet)
 
 Simple library that accepts `xls` files, applies the transformations you want to them and it returns a `csv` file with the result.
 

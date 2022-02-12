@@ -11,6 +11,12 @@ describe("deleteRows", () => {
     ];
   });
 
+  it("should return empty array if empty array is given", () => {
+    data = [];
+    deleteRows(data, "1");
+    expect(data).toStrictEqual([]);
+  });
+
   it("should delete a single row", () => {
     deleteRows(data, "1");
     expect(data).toStrictEqual([
@@ -55,6 +61,12 @@ describe("deleteColumns", () => {
       ["A", "B", "C"],
       ["A", "B", "C"],
     ];
+  });
+
+  it("should return empty array if empty array is given", () => {
+    data = [];
+    deleteColumns(data, "1");
+    expect(data).toStrictEqual([]);
   });
 
   it("should delete a single column", () => {
@@ -103,6 +115,12 @@ describe("renameCell", () => {
       ["B", "B", "B"],
       ["C", "C", "C"],
     ];
+  });
+
+  it("should return empty array if empty array is given", () => {
+    data = [];
+    renameCell(data, "A1", "TEST");
+    expect(data).toStrictEqual([]);
   });
 
   it("should rename a single cell", () => {

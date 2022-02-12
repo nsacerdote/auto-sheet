@@ -32,3 +32,14 @@ function fromStringToNumberArray(rowsString) {
 function isBrowser() {
   return typeof window === "object";
 }
+
+function _createTestArray() {
+  console.log(JSON.stringify(["A", "B", "C", "D"].map(char => _a(char, 4))));
+
+  function _a(char, size) {
+    return `${char}`
+      .repeat(size)
+      .split("")
+      .map((str, i) => str + (i + 1));
+  }
+}

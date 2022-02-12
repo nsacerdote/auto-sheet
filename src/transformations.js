@@ -23,11 +23,28 @@ function deleteColumns(data, columns) {
 function renameCell(data, coords, newName) {
   if (Array.isArray(coords)) {
     const [row, column] = coords;
-    data[row - 1][column - 1] = newName;
+    _rename(row, column);
   } else {
     const [column, row] = [...coords];
     const columnNumber = fromLettersToNumber(column);
-    data[row - 1][columnNumber - 1] = newName;
+    _rename(row, columnNumber);
+  }
+
+  function _rename(row, column) {
+    row = row - 1;
+    column = column - 1;
+    if (_inRange(row, column)) {
+      data[row][column] = newName;
+    }
+  }
+
+  function _inRange(rowIndex, columnIndex) {
+    if (rowIndex > data.length - 1) {
+      return false;
+    } else if (columnIndex > data[rowIndex].length - 1) {
+      return false;
+    }
+    return true;
   }
 }
 

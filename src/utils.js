@@ -13,12 +13,12 @@ function fromLettersToNumber(columnName) {
 }
 
 function fromStringToNumberArray(rowsString) {
-  const sections = rowsString.split(",").map(_toNumberArray);
+  const sections = rowsString.split(/\s*,\s*/).map(_toNumberArray);
 
   return [...new Set([].concat(...sections))];
 
   function _toNumberArray(rangeOrNumber) {
-    const [start, end] = rangeOrNumber.split("-").map(i => {
+    const [start, end] = rangeOrNumber.split(/\s*-\s*/).map(i => {
       return isNaN(+i) ? fromLettersToNumber(i) : +i;
     });
     const result = [];

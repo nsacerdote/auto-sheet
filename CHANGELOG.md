@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.1.1] - 2022-02-13
+### Fixed
+Fix wrong build (dist files) and update webpack config
+
 ## [1.1.0] - 2022-02-13
 ### Added
 Introduce transformScript option, allows to use a script to specify transformations.

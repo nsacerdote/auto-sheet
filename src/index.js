@@ -1,12 +1,25 @@
 const transformations = require("./transformations");
+const { applyScript } = require("./apply-script");
 const { isBrowser } = require("./utils");
 const { readXlsFile, readXls } = require("./import");
 const { writeCsvFile, downloadCsvFile } = require("./export");
 
 module.exports = {
-  run: ({ transformFn, fromFile, from, sheetNumber, toFile }) => {
+  run: ({
+    transformFn,
+    transformScript,
+    fromFile,
+    from,
+    sheetNumber,
+    toFile,
+  }) => {
     const data = getData({ fromFile, from, sheetNumber });
-    transformFn(bindTransformations(data));
+    const transformations = bindTransformations(data);
+    if (transformFn) {
+      transformFn(transformations);
+    } else if (transformScript || transformScript === "") {
+      applyScript(transformScript, transformations);
+    }
     exportData({ toFile, data });
   },
 };

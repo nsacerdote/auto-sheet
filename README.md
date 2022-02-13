@@ -1,4 +1,5 @@
 # AutoSheet
+
 [![GitHub license](https://img.shields.io/github/license/nsacerdote/auto-sheet)](https://github.com/nsacerdote/auto-sheet/blob/master/LICENSE)
 ![npm](https://img.shields.io/npm/v/auto-sheet)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/auto-sheet)
@@ -34,6 +35,17 @@ AutoSheet.run({
   fromFile: "./input.xls",
   toFile: "./output.csv",
 });
+
+// Using script
+AutoSheet.run({
+  transformScript: `
+    DELETE ROWS 1,4-6,8
+    DELETE COLUMNS C,E-G
+    RENAME CELL A1 DATE
+  `,
+  fromFile: "./input.xls",
+  toFile: "./output.csv",
+});
 ```
 
 ### Browser
@@ -41,7 +53,7 @@ AutoSheet.run({
 ```html
 <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
 <script src="https://unpkg.com/xlsx@0.18.0/dist/xlsx.js"></script>
-<script src="https://unpkg.com/auto-sheet@1.0.0/dist/auto-sheet.js"></script>
+<script src="https://unpkg.com/auto-sheet@1.1.0/dist/auto-sheet.js"></script>
 
 <input id="xls_file" type="file" name="xls_file" />
 
@@ -53,10 +65,21 @@ AutoSheet.run({
   async function handleFileAsync(e) {
     const file = e.target.files[0];
     const data = await file.arrayBuffer();
+    
     AutoSheet.run({
       transformFn: transform,
       from: data,
       toFile: "out.csv",
+    });
+    
+    AutoSheet.run({
+      transformScript: `
+        DELETE ROWS 1,4-6,8
+        DELETE COLUMNS C,E-G
+        RENAME CELL A1 DATE
+      `,
+      from: data,
+      toFile: "out-2.csv",
     });
   }
 

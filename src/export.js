@@ -1,5 +1,6 @@
 const fs = require("fs");
 const FileSaver = require("file-saver");
+const { stringify } = require("csv-stringify/sync");
 
 module.exports.writeCsvFile = writeCsvFile;
 module.exports.downloadCsvFile = downloadCsvFile;
@@ -13,5 +14,5 @@ function downloadCsvFile({ filename, data }) {
 }
 
 function toCsv(data) {
-  return data.map(row => row.join(";")).join("\r\n");
+  return stringify(data, { delimiter: ";" });
 }

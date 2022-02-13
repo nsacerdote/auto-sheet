@@ -25,6 +25,12 @@ module.exports = {
       amd: "file-saver",
       root: "saveAs",
     },
+    ["csv-stringify/sync"]: {
+      commonjs: "csv-stringify/sync",
+      commonjs2: "csv-stringify/sync",
+      amd: "csv-stringify/sync",
+      root: "csv_stringify_sync",
+    },
     fs: "fs",
   },
 };

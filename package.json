@@ -1,6 +1,6 @@
 {
   "name": "auto-sheet",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Accepts xls files, applies the transformations you want to them and it returns a csv file with the result. It works in the browser and node.",
   "main": "dist/auto-sheet.js",
   "scripts": {

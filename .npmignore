@@ -2,5 +2,6 @@ node_modules/
 .idea/
 test-files/
 examples/
+demo/
 .github/
 .gitignore

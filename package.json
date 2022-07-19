@@ -1,11 +1,14 @@
 {
   "name": "auto-sheet",
   "version": "1.1.1",
+  "homepage": "https://nsacerdote.github.io/auto-sheet",
   "description": "Accepts xls files, applies the transformations you want to them and it returns a csv file with the result. It works in the browser and node.",
   "main": "dist/auto-sheet.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack"
+    "build": "webpack",
+    "predeployDemo": "cd demo && npm run build",
+    "deployDemo": "gh-pages -d demo/build"
   },
   "author": "",
   "license": "MIT",
@@ -13,6 +16,7 @@
   "devDependencies": {
     "csv-stringify": "^6.0.5",
     "file-saver": "^2.0.0",
+    "gh-pages": "^4.0.0",
     "jest": "^27.4.7",
     "prettier": "2.5.1",
     "webpack": "^5.68.0",
@@ -20,9 +24,9 @@
     "xlsx": "^0.18.0"
   },
   "peerDependencies": {
+    "csv-stringify": "^6.0.0",
     "file-saver": "^2.0.0",
-    "xlsx": "^0.18.0",
-    "csv-stringify": "^6.0.0"
+    "xlsx": "^0.18.0"
   },
   "prettier": {
     "arrowParens": "avoid"

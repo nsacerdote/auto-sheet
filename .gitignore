@@ -1,3 +1,4 @@
 ﻿node_modules/
 .idea/
 test-files/out/
+demo/build

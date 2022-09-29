@@ -1,3 +1,5 @@
+@use "styles/variables";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,9 +7,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: variables.$bg-color;
+  color: variables.$text-color;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.125em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+h4 {
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1rem 0;
 }

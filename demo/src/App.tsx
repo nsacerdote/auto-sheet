@@ -1,15 +1,16 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
+import TransformationArea from "./components/TransformationArea";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Demo will be here!</p>
+    <>
+      <header className="container">
+        <h1>AutoSheet Demo</h1>
       </header>
-    </div>
+      <div className="container">
+        <TransformationArea />
+      </div>
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 import "./App.scss";
-import TransformationArea from "./components/TransformationArea";
+import TransformArea from "./components/TransformArea";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
         <h1>AutoSheet Demo</h1>
       </header>
       <div className="container">
-        <TransformationArea />
+        <TransformArea />
       </div>
     </>
   );

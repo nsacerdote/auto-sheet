@@ -1,7 +1,13 @@
 import "./RunButton.scss";
+import { useTransformAreaContext } from "../providers/TransformAreaProvider";
 
 function RunButton() {
-  return <div>RunButton!</div>;
+  const { run } = useTransformAreaContext();
+  return (
+    <button className="run-button" onClick={run}>
+      Transform
+    </button>
+  );
 }
 
 export default RunButton;

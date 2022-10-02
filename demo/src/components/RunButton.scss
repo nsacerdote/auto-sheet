@@ -1,0 +1,17 @@
+@use "../styles/variables";
+
+.run-button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: variables.$highlight-color;
+  color: variables.$text-color;
+  border: none;
+  align-self: flex-start;
+
+  transition: background-color ease 200ms;
+
+  &:hover {
+    background-color: darken(variables.$highlight-color, 5%);
+  }
+}

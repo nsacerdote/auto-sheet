@@ -6,19 +6,28 @@ import {
   useRef,
   useState,
 } from "react";
+import { useTransformAreaContext } from "../../providers/TransformAreaProvider";
+import FileUploadContent from "./FileUploadContent";
+
+const VALID_FILE_TYPES = [
+  "application/vnd.ms-excel",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+];
 
 function FileUpload() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [dragActive, setDragActive] = useState(false);
+  const [dragActive, setDragActive] = useState(0);
+  const { addFile } = useTransformAreaContext();
 
   return (
     <form className="form-file-upload">
       <input
         type="file"
         id="input-file-upload"
-        accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        accept={VALID_FILE_TYPES.join(",")}
         ref={inputRef}
         onChange={handleChange}
+        multiple
       />
       <label
         htmlFor="input-file-upload"
@@ -28,13 +37,13 @@ function FileUpload() {
         onDragOver={handleDrag}
         onDrop={handleDrop}
       >
-        <p>Drop your files here!</p>
+        <FileUploadContent />
         <button
           className="upload-button"
           type="button"
           onClick={triggerFileInput}
         >
-          Upload a file
+          Upload files
         </button>
       </label>
     </form>
@@ -42,17 +51,23 @@ function FileUpload() {
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     stopEvent(e);
-    handleFiles(e.target.files);
+    if (e.target.files) {
+      handleFiles(e.target.files);
+    }
   }
 
   function handleDrag(e: DragEvent) {
     stopEvent(e);
-    setDragActive(e.type === "dragenter" || e.type === "dragover");
+    if (e.type === "dragenter") {
+      setDragActive(old => old + 1);
+    } else if (e.type === "dragleave") {
+      setDragActive(old => old - 1);
+    }
   }
 
   function handleDrop(e: DragEvent) {
     stopEvent(e);
-    setDragActive(false);
+    setDragActive(0);
     handleFiles(e.dataTransfer.files);
   }
 
@@ -60,8 +75,10 @@ function FileUpload() {
     inputRef.current?.click();
   }
 
-  function handleFiles(files: FileList | null) {
-    console.log(files);
+  function handleFiles(files: FileList) {
+    Array.from(files)
+      .filter(f => VALID_FILE_TYPES.includes(f.type))
+      .forEach(f => addFile(f));
   }
 
   function stopEvent(e: SyntheticEvent) {

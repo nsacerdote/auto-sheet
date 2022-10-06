@@ -1,6 +1,6 @@
-import RunButton from "./RunButton";
-import ScriptEditor from "./ScriptEditor";
-import FileUpload from "./FileUpload";
+import RunButton from "./RunButton/RunButton";
+import ScriptEditor from "./ScriptEditor/ScriptEditor";
+import FileUpload from "./FileUpload/FileUpload";
 import "./TransformArea.scss";
 import { TransformAreaProvider } from "../providers/TransformAreaProvider";
 

@@ -4,15 +4,15 @@
   column-gap: 2rem;
   min-height: 200px;
 
-  :nth-child(1) {
-    flex-grow: 3;
+  > :nth-child(1) {
+    flex-grow: 2;
   }
 
-  :nth-child(2) {
-    flex-grow: 12;
+  > :nth-child(2) {
+    flex-grow: 5;
   }
 
-  :nth-child(3) {
-    flex-grow: 1;
+  > :nth-child(3) {
+    flex-shrink: 0;
   }
 }

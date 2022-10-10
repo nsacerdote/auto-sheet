@@ -2,3 +2,4 @@
 .idea/
 test-files/out/
 demo/build
+dist/*

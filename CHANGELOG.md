@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.1.2] - 2022-10-10
+### Fixed
+Remove dist files from repository, make github actions generate build and publish
+
 ## [1.1.1] - 2022-02-13
 ### Fixed
 Fix wrong build (dist files) and update webpack config
